@@ -18,5 +18,9 @@ def calculadora(n1, n2, op):
 
     elif op == 'r':
         result = n1 ** (1/n2)
+    
+    else:
+        print('voce digitou uma operaçao ainda nao suportada')
+        exit()
 
     return result

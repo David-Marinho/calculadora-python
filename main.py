@@ -1,17 +1,29 @@
 from func import calculadora
 
-print('Bem vindo a calculadora V2.0')
+num1 = ''
 
-num1 = float(input('digite um numero: '))
+print('Bem vindo a calculadora V3.0')
+escolha = input('deseja calcular com a raiz quadrada? ').upper()
 
-op = input('[+] para somar \n[-] subtrair \n[*] para multiplicar \n[/] dividir \n[%] para resto de divisao '
-           '\n[r] raiz \ndigite o simbolo da operaçao desejada: ')
-
-if op == 'r':
-    num2 = int(input('digite o indice da raiz: '))
+if escolha[:1] == 'S':
+    num1 = float(input('digite o numero: '))
+    num2 = float(input('digite o indice da raiz: '))
+    op = 'r'
 
 else:
-    num2 = float(input('digite o segundo numero: '))
+    conta = input('digite a conta: ').replace(' ', '')
+    
+    for i in conta:
+        if i.isnumeric():
+            num1 += i
+        
+        else:
+            break
+    
+    op = conta[len(num1)]
+    num2 = conta[len(num1) + 1:]
+    num2 = float(num2)
+    num1 = float(num1)
 
 result = calculadora(num1, num2, op)
 print('=-=' * 30)
